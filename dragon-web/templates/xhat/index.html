@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat With AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+<a href="https://t.me/+gtKtCH2hqBRhODQy" class="DragonMis" style="  background: #1b1b1b;border-radius: 4px;border: solid 2px #000000;color: #ffffff;text-decoration: none; padding: 8px;position:relative;top: 30px;" >Mistake of DragonAI</a>
+    <ul class="chat-thread" style="height: 90vh; width: 100%">
+        {% for message in messages %}
+        <li>{{ message.content }}</li><li>{{ response }}</li>
+        {% endfor %}
+        {% if not messages %}
+        <li>'{{ simdi }}' - Hello Welcome To CodeAI Community!:<br>this is our first AI so far it's test and absolutely free it can't do advanced tasks like GPT3.5 or 4 yet <br> but it can have a friendly conversation with you about simple things since<br> it's our first AI bot it has some flaws if you notice any bugs please let us know Please let us know if you click on the error link! let me know<br>please send a screen shot to show the error!</li>
+        {% endif %}
+    </ul>
+        <form class="message" method="post" id="message">
+            <!-- Kullanıcıların yeni mesajlarını gönderebileceği bir form -->
+            <input class="chat-window-message" placeholder="Your name here" name="message" type="text" style="  position: fixed; top: 90vh;" autocomplete="off" autofocus required>
+            <button type="submit" style="visibility: hidden">Send</button>
+        </form>
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

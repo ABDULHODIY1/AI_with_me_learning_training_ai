@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Users/abdulhodiy/PycharmProjects/Django/Untitled/dragon-web/templates/style.css">
+    <title>Chat App</title>
+    <style>
+        .chat-thread {
+            list-style-type: none;
+            padding: 0;
+        }
+        .chat-thread li {
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .chat-window {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Chat App!</h1>
+    <ul class="chat-thread">
+        {% for message in messages %}
+            <li>{{ message.content }}</li>
+        {% endfor %}
+    </ul>
+    <form class="chat-window" action="/chat" method="POST">
+        <input class="chat-window-message" name="message" type="text" autocomplete="off" autofocus placeholder="Type your message...">
+        <button type="submit">Send</button>
+    </form>
+    <p>{{ response }}</p>
+</body>
+<script src="templates/script.js"></script>
+</html>
